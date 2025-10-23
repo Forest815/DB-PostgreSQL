@@ -17,11 +17,8 @@ VALUES
 -- FROM
 --   s_users;
 SELECT
-  id,
   name,
-  CASE
-    WHEN guild ISNULL THEN '(無所属)' -- NULL判定には ISNULL を使用
-    ELSE guild
-  END AS "guild"
+  last_login_at,
+  TO_CHAR(last_login_at, 'YYYY"/"MM"/"DD HH24"時"MI"分"SS"秒"')
 FROM
   s_characters;
